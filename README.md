@@ -24,10 +24,11 @@
 - `src/api/hotListCache.js` 引入内存 + localStorage 5 分钟缓存与失败重试，配合 `Home.vue` 预热和 `HotList.vue`/`List.vue` 的懒加载，大幅减少重复请求。
 - 新增 `src/utils/useVisibilityObserver.js` 复用单个 IntersectionObserver，卡片可见时才触发请求，避免每个组件各建实例。
 - `src/components/AvatarPlaceholder.vue` 与 `src/utils/avatarPlaceholder.js` 提供渐变占位头像，即便缺失 logo 也能保持视觉一致。
-- `src/views/Home.vue` 预抓取前 4 个展示榜单，提升首屏体验；`src/views/Setting.vue` 通过异步加载 `vuedraggable` 减少首屏体积。
+- `src/store/index.js` 补齐 50+ 默认榜单源（含 Hostloc、Linux.do、NodeSeek、吾爱破解、游研社等），并在 `checkNewsUpdate` 中自动合并本地自定义顺序，新增来源时保留用户配置。
+- `src/views/Home.vue` 预抓取前 4 个展示榜单，提升首屏体验；`src/views/Setting.vue` 异步加载 `vuedraggable` 以减小首屏包体。
 - `src/api/request.js` 改为独立 Axios 实例，统一超时与头信息，且在非浏览器环境中安全跳过本地存储操作。
 - 构建链路升级：`vite.config.js` 增加手动分包、PWA 资源精细化缓存、`pnpm analyze` 对应的体积分析插件，并在 `package.json` 中升级相关依赖。
-- 清理无用路由（移除 `/test` 页面），并补充 `PERFORMANCE_PLAN.md` 等文档用于记录性能方案与优化计划。
+- 清理无用路由（移除 `/test` 页面），同步保留精简后的页面结构与路由配置。
 
 ## 🛠 技术栈
 
@@ -104,11 +105,7 @@ pnpm analyze
 - `src/api/hotListCache` 对请求结果缓存 5 分钟，支持失败重试与 localStorage 持久化。
 - PWA 仅预缓存核心资源，避免首次安装 Service Worker 时阻塞。
 
-更多细节请参考 `PERFORMANCE_PLAN.md` 与 `开发进度.md`。
-
 ## 🛣 路线图
-
-在 `FEATURE_ENHANCEMENTS.md` 中列出了对用户有价值的功能增量，优先级建议如下：
 
 1. 短期：跨榜单搜索、新增提示标记、自动刷新策略。
 2. 中期：收藏 / 稍后阅读、快速分享、API 状态提示。
