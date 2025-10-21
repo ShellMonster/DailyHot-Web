@@ -1,0 +1,1 @@
+export { default as NHighlight, highlightProps } from "./src/Highlight.mjs";

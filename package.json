@@ -1,0 +1,39 @@
+{
+  "name": "dailyhot",
+  "description": "今日热榜",
+  "author": "imsyy",
+  "github": "https://github.com/imsyy",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "analyze": "ANALYZE=true vite build"
+  },
+  "dependencies": {
+    "@icon-park/vue-next": "^1.4.2",
+    "@jridgewell/sourcemap-codec": "^1.5.0",
+    "axios": "^1.7.7",
+    "lunar-calendar": "^0.1.4",
+    "pinia": "^2.2.6",
+    "pinia-plugin-persistedstate": "^3.2.3",
+    "sass": "^1.80.6",
+    "scrollreveal": "^4.0.9",
+    "terser": "^5.36.0",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5",
+    "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "naive-ui": "^2.40.1",
+    "unplugin-auto-import": "^20.2.0",
+    "unplugin-vue-components": "^29.1.0",
+    "vite": "7.1.9",
+    "vite-plugin-pwa": "^1.1.0",
+    "workbox-build": "^7.3.0",
+    "workbox-window": "^7.3.0",
+    "rollup-plugin-visualizer": "^6.0.5"
+  }
+}
